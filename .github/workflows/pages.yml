@@ -1,0 +1,110 @@
+name: Validate and deploy JRRZ site
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "site/**"
+      - ".github/workflows/pages.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Validate required files and local links
+        shell: bash
+        run: |
+          set -euo pipefail
+          required=(
+            site/index.html
+            site/styles.css
+            site/hip-zone.html
+            site/knee-zone.html
+            site/patient-roadmap.html
+            site/recovery-model.html
+            site/systems-comparison.html
+            site/diagrams/zone-body-map.svg
+            site/diagrams/recovery-trajectory.svg
+          )
+          for file in "${required[@]}"; do
+            test -s "$file" || { echo "Missing or empty: $file"; exit 1; }
+          done
+
+          python - <<'PY'
+          from html.parser import HTMLParser
+          from pathlib import Path
+          import xml.etree.ElementTree as ET
+          import re
+
+          root = Path('site')
+          html_files = sorted(root.glob('*.html'))
+          required_footer_phrase = 'educational purposes only'
+
+          class Parser(HTMLParser):
+              def __init__(self):
+                  super().__init__()
+                  self.refs = []
+              def handle_starttag(self, tag, attrs):
+                  attrs = dict(attrs)
+                  if tag in {'a', 'img', 'link', 'object'}:
+                      key = {'a':'href','img':'src','link':'href','object':'data'}[tag]
+                      if attrs.get(key):
+                          self.refs.append(attrs[key])
+
+          errors = []
+          for path in html_files:
+              text = path.read_text(encoding='utf-8')
+              if required_footer_phrase not in text.lower():
+                  errors.append(f'{path}: shared medical disclaimer missing')
+              p = Parser(); p.feed(text)
+              for ref in p.refs:
+                  if ref.startswith(('http://','https://','#','mailto:','tel:')):
+                      continue
+                  target = (path.parent / ref.split('#',1)[0]).resolve()
+                  if not target.exists():
+                      errors.append(f'{path}: missing local target {ref}')
+
+          for svg in sorted((root / 'diagrams').glob('*.svg')):
+              try:
+                  ET.parse(svg)
+              except Exception as exc:
+                  errors.append(f'{svg}: invalid XML: {exc}')
+
+          body_map = (root / 'diagrams' / 'zone-body-map.svg').read_text(encoding='utf-8')
+          for required in ['The Hip Zone','The Knee Zone','Shoulders','Elbows','Wrists','Spine/Neck','Ankles','In Recovery','In Surgery','Live Zone']:
+              if required not in body_map:
+                  errors.append(f'body map missing required label/status: {required}')
+
+          if errors:
+              raise SystemExit('\n'.join(errors))
+          print(f'Validated {len(html_files)} HTML pages and 2 SVG diagrams.')
+          PY
+
+      - name: Upload validated site artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: validate
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
