@@ -1,31 +1,76 @@
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Joint Replacement Recovery Zone</title>
-<link rel="stylesheet" href="styles.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Patient-centered recovery zones for people preparing for and recovering from joint replacement.">
+  <title>Joint Replacement Recovery Zone</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <header class="site-header">
+    <div class="site-shell">
+      <a class="brand-mark" href="index.html" aria-label="Joint Replacement Recovery Zone home">
+        <span class="brand-icon" aria-hidden="true"></span>
+        <span class="brand-name">Joint Replacement Recovery Zone</span>
+      </a>
+      <p class="tagline">Helping patients understand recovery before and after joint replacement.</p>
+      <nav class="main-nav" aria-label="Primary navigation">
+        <a href="hip-zone.html">The Hip Zone</a>
+        <a href="knee-zone.html">The Knee Zone</a>
+        <a href="patient-roadmap.html">Patient Roadmap</a>
+        <a href="recovery-model.html">Recovery Model</a>
+        <a href="systems-comparison.html">Systems Thinking</a>
+      </nav>
+    </div>
+  </header>
 
-<h1>Joint Replacement Recovery Zone</h1>
+  <main class="site-shell">
+    <section class="hero-copy" aria-labelledby="explore-title">
+      <h1 id="explore-title">Choose the joint. See the path forward.</h1>
+      <p>Click the joint itself to open a live recovery zone or a trusted informational resource while a new zone is being developed.</p>
+    </section>
 
-<p>
-A structured framework to help patients understand the journey before and after joint replacement surgery.
-</p>
+    <section class="visual-panel" aria-label="Interactive joint recovery zone map">
+      <object class="body-map-object" data="diagrams/zone-body-map.svg" type="image/svg+xml" aria-label="Interactive body map showing recovery zones">
+        <p>Your browser could not load the interactive body map. Use the navigation links above to open The Hip Zone or The Knee Zone.</p>
+      </object>
+      <div class="zone-legend" aria-label="Zone status legend">
+        <div class="legend-item">
+          <div class="legend-title"><span class="legend-dot live" aria-hidden="true"></span>Live Zone</div>
+          <p>Patient-centered recovery guidance is available now.</p>
+        </div>
+        <div class="legend-item">
+          <div class="legend-title"><span class="legend-dot recovery" aria-hidden="true"></span>In Recovery</div>
+          <p>A dedicated Zone is being prepared. An estimated launch date will appear when confirmed.</p>
+        </div>
+        <div class="legend-item">
+          <div class="legend-title"><span class="legend-dot surgery" aria-hidden="true"></span>In Surgery</div>
+          <p>Research and planning are underway. Trusted informational resources remain available.</p>
+        </div>
+      </div>
+    </section>
 
-<h2>The Recovery Journey</h2>
+    <section class="hero-copy" aria-labelledby="trajectory-title">
+      <h2 id="trajectory-title">Understanding the recovery journey</h2>
+      <p>Recovery often includes a temporary loss of function followed by rebuilding, adaptation, and longer-term stability. Individual experiences vary.</p>
+    </section>
 
-<p>(Recovery trajectory diagram will appear here)</p>
+    <section class="visual-panel">
+      <img class="recovery-graphic" src="diagrams/recovery-trajectory.svg" alt="Conceptual joint replacement recovery trajectory showing baseline, surgery dip, recovery range, and long-term improvement">
+    </section>
+  </main>
 
-<p>
-Recovery from joint replacement typically follows a recognizable trajectory involving preparation, surgical intervention, early recovery, and long-term mobility rebuilding.
-</p>
-
-<hr>
-
-<p><a href="recovery-model.html">Understanding the Recovery Model</a></p>
-<p><a href="systems-comparison.html">Systems Thinking and Recovery</a></p>
-<p><a href="patient-roadmap.html">Patient Recovery Roadmap</a></p>
-
+  <footer class="site-footer">
+    <div class="site-shell">
+      <p class="footer-brand">Joint Replacement Recovery Zone</p>
+      <p>Educational recovery framework for patients and families navigating joint replacement.</p>
+      <p>This site is for educational purposes only and does not provide medical advice, diagnosis, or treatment. Always follow guidance from your surgeon, physician, and physical therapist.</p>
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <a href="index.html">Home</a><a href="hip-zone.html">Hip Zone</a><a href="knee-zone.html">Knee Zone</a><a href="patient-roadmap.html">Patient Roadmap</a><a href="recovery-model.html">Recovery Model</a><a href="systems-comparison.html">Systems Thinking</a>
+      </nav>
+      <p class="footer-copy">© 2026 Joint Replacement Recovery Zone. All rights reserved.</p>
+    </div>
+  </footer>
 </body>
 </html>
