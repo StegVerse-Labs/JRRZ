@@ -2,165 +2,162 @@
 
 ## Canonical status
 
-- **Repository:** `StegVerse-Labs/JRRZ`
-- **Branch:** `main`
+- **Repository / branch:** `StegVerse-Labs/JRRZ` / `main`
 - **Active goal ID:** `JRRZ-PUBLIC-SITE-001`
-- **Active goal:** Deliver and validate the public-facing Joint Replacement Recovery Zone site with a minimal homepage, interactive joint-navigation body map, recovery-trajectory graphic, supporting zone pages, and durable continuation controls.
-- **Originating session goal:** Develop the Joint Replacement Recovery Zone from the user's lived hip-replacement experience and the neighboring Knee Zone relationship, with a patient-centered, clinically aligned public test site.
-- **Canonical task owner:** `StegVerse-Labs/JRRZ`
-- **Canonical handoff:** this file
+- **Active goal:** validate and activate the installed public-facing Joint Replacement Recovery Zone site.
+- **Originating session goal:** develop a patient-centered Joint Replacement Recovery Zone, beginning with hip and knee recovery, and prepare a public test site for the Brauns.
+- **Canonical continuation:** this file, deployment task issue `#1`, and `validation/JRRZ_PUBLIC_SITE_VALIDATION.md`.
+- **Canonical owner:** `StegVerse-Labs/JRRZ`.
 
-## Claims
+## Current claims
 
-### Active implementation claim
+### Implementation claim — RELEASED
 
-- **Task ID:** `JRRZ-PUBLIC-SITE-001`
-- **Claimant / lane:** `ChatGPT GitHub connector implementation lane`
-- **Role:** implementation, consolidation, static validation, and repository handoff installation
-- **Files / surfaces:** `site/**`, `docs/**`, `guides/**`, `zones/**`, `research/**`, `meta/**`, root handoff and validation files
-- **Claim created:** `2026-08-02T22:34:00-05:00`
-- **Claim release condition:** release after all session-specific requirements are installed, static validation passes, deployment status is inspected, and any remaining authority boundary is recorded in this handoff
-- **Claim expiration:** `2026-08-04T22:34:00-05:00` unless renewed with committed evidence
-- **Expected evidence:** commit SHAs, file inventory, validation receipt, GitHub Pages/runtime observation, and handoff update
-- **Collision boundary:** no parallel writer should modify the same `site/**` paths without first updating this handoff or taking a distinct validation/integration claim
-- **Next task after release:** public deployment verification and Braun review preparation
+- **Lane:** ChatGPT GitHub connector implementation lane
+- **Scope:** public site, diagrams, supporting documentation, validation workflow, and session consolidation
+- **Created:** `2026-08-02T22:34:00-05:00`
+- **Released:** after repository installation and static validation receipt commit on `2026-08-02/03`
+- **Collision boundary:** future writers must preserve the status vocabulary, correct joint mapping, public safety language, and deployment task evidence unless this handoff is explicitly superseded.
 
-### Active validation claim
+### Deployment validation claim — MACHINE_OWNED / REVIEW_REQUIRED
 
-- **Task ID:** `JRRZ-VALIDATE-001`
-- **Claimant / lane:** same lane, distinct validation phase after implementation
-- **Role:** inspect exact file contents, validate HTML/SVG/CSS structure, inspect workflow/deployment evidence, and record results
-- **Release condition:** validation receipt committed and runtime status classified
+- **Task ID:** `JRRZ-DEPLOY-VERIFY-001`
+- **Durable task:** issue `#1`, `Verify Pages workflow and public JRRZ runtime`
+- **Owner:** repository-native GitHub Pages workflow plus the next authorized validation lane
+- **Files:** `.github/workflows/pages.yml`, `site/**`, `validation/JRRZ_PUBLIC_SITE_VALIDATION.md`
+- **Release condition:** successful validation and deploy jobs, public URL confirmed, both SVG assets loaded, internal Hip/Knee links resolved, and evidence written back to the handoff and validation receipt
+- **State:** hosted run/log/runtime evidence has not yet been observed by this lane
 
-## Authoritative files
+## Authoritative implementation
+
+### Public pages
+
+- `site/index.html` — minimal homepage with header, mission, interactive body map, HTML status legend, recovery trajectory, and footer
+- `site/hip-zone.html` — live Hip Zone foundation
+- `site/knee-zone.html` — live Knee Zone foundation
+- `site/patient-roadmap.html` — six-phase patient roadmap
+- `site/recovery-model.html` — recovery trajectory explanation
+- `site/systems-comparison.html` — recovery/state-transition comparison and explicit separation from StegVerse product or clinical coupling
+- `site/styles.css` — responsive public design system and shared components
+
+### Diagrams
+
+- `site/diagrams/zone-body-map.svg` — interactive, accessible joint navigation
+- `site/diagrams/recovery-trajectory.svg` — conceptual patient-reported function trajectory with uncertainty band and disclaimer
+
+### Documentation
 
 - `README.md`
-- `JRRZ_MIRROR_HANDOFF.md`
-- `site/index.html`
-- `site/styles.css`
-- `site/patient-roadmap.html`
-- `site/recovery-model.html`
-- `site/systems-comparison.html`
-- `site/diagrams/zone-body-map.svg`
-- `site/diagrams/recovery-trajectory.svg`
 - `docs/Recovery_Framework.md`
 - `docs/JRRZ_Overview.md`
 - `docs/Recovery_Milestone_Map.md`
 - `docs/Surgeon_Collaboration.md`
-- `zones/KneeZone.md`
 - `zones/HipZone.md`
+- `zones/KneeZone.md`
 - `zones/Future_Zones.md`
-- `guides/*.md`
-- `research/*.md`
+- `guides/Pre_Surgery_Preparation.md`
+- `guides/Early_Recovery.md`
+- `guides/Mobility_Rebuilding.md`
+- `guides/Long_Term_Joint_Protection.md`
+- `research/Orthopedic_Statistics.md`
+- `research/Recovery_Outcomes.md`
+- `research/Clinical_References.md`
 - `meta/Roadmap.md`
 - `meta/Vision.md`
 
-## Session goal inventory
+### Automation and evidence
 
-| ID | Requirement | Destination | Claim state | Completion state | Validation | Integration | Archival dependency | Next executable action |
-|---|---|---|---|---|---|---|---|---|
-| JRRZ-001 | Canonical repository and handoff | root | CLAIMED_FOR_IMPLEMENTATION | complete when committed | inspect commit | canonical | required | maintain this handoff |
-| JRRZ-002 | Minimal public index with header, body map, graph, footer | `site/index.html` | CLAIMED_FOR_IMPLEMENTATION | inspect existing and replace as needed | pending | pending | required | fetch current file |
-| JRRZ-003 | Interactive body map with anatomically correct hover/click hotspots | `site/diagrams/zone-body-map.svg` plus page integration | CLAIMED_FOR_IMPLEMENTATION | prior chat prototypes untrusted | pending | pending | required | install production SVG/inline interaction |
-| JRRZ-004 | Zone states: blue Live, teal In Recovery, gray In Surgery | site CSS/SVG/legend | CLAIMED_FOR_IMPLEMENTATION | design decision only until installed | pending | pending | required | implement consistently |
-| JRRZ-005 | Hip and Knee live zone destinations | zone pages and body-map links | CLAIMED_FOR_IMPLEMENTATION | pending inspection | pending | pending | required | inspect/create pages |
-| JRRZ-006 | Non-live joints link to trusted informational resources | body-map links | CLAIMED_FOR_IMPLEMENTATION | missing until verified | pending | pending | required | install external links with accessible labels |
-| JRRZ-007 | Recovery trajectory graphic | `site/diagrams/recovery-trajectory.svg` | CLAIMED_FOR_IMPLEMENTATION | pending inspection | pending | pending | required | inspect/replace |
-| JRRZ-008 | Shared footer on every public page | all `site/*.html` | CLAIMED_FOR_IMPLEMENTATION | pending inspection | pending | pending | required | implement and validate |
-| JRRZ-009 | Patient Recovery Roadmap page | `site/patient-roadmap.html` | CLAIMED_FOR_VALIDATION | prior commit exists | pending | pending | required | inspect content |
-| JRRZ-010 | Recovery Model page | `site/recovery-model.html` | CLAIMED_FOR_IMPLEMENTATION | unknown | pending | pending | required | inspect/create |
-| JRRZ-011 | Systems Comparison page explaining recovery/system-boundary analogy and StegVerse fit without public coupling claim | `site/systems-comparison.html` | CLAIMED_FOR_IMPLEMENTATION | unknown | pending | pending | required | inspect/create |
-| JRRZ-012 | Public-facing headers/brand treatment for JRRZ, Hip Zone, Knee Zone | `site/images/**` or CSS/SVG text treatment | CLAIMED_FOR_IMPLEMENTATION | generated raster drafts are not canonical | pending | pending | optional for activation, required for Braun preview | use web-safe non-broken treatment |
-| JRRZ-013 | Foundational documentation tree with purpose and 'information coming soon' where incomplete | docs/guides/zones/research/meta | CLAIMED_FOR_VALIDATION | likely partial | pending | n/a | required for consolidation | inspect inventory and fill gaps |
-| JRRZ-014 | GitHub Pages/public test deployment | repository Pages surface | CLAIMED_FOR_INTEGRATION | unverified | pending | pending | required for public activation | inspect deployment state after files |
-| JRRZ-015 | Static validation and durable receipt | `validation/JRRZ_PUBLIC_SITE_VALIDATION.md` | CLAIMED_FOR_VALIDATION | missing | pending | n/a | required | run strongest available checks and commit receipt |
-| JRRZ-016 | Cross-repository propagation determination | Site/Publisher/wikis/master-records | UNCLAIMED pending handoff contracts | not yet required by evidence | pending | pending | not required unless live contract says so | inspect only if JRRZ handoff/reference requires it |
+- `.github/workflows/pages.yml` — required-file checks, local-link checks, shared-disclaimer checks, SVG XML parsing, body-map label/status checks, Pages artifact upload, and deploy request
+- `validation/JRRZ_PUBLIC_SITE_VALIDATION.md` — static validation receipt and evidence boundaries
+- issue `#1` — durable deployment/runtime observer and correction task
 
-## Unique requirements transferred from the originating session
+## Canonical public behavior
 
-1. The homepage must remain intentionally minimal: header, one-line mission, clickable body map, recovery trajectory, footer.
-2. Visitors should literally click the expected joint location; hover must illuminate an opaque but recognizable joint at the correct anatomy.
-3. Every major mapped joint must be circled and labeled accurately. Incorrect label-to-joint mappings are prohibited.
-4. Hip and knee are the initial live zones.
-5. Non-live joints remain useful by linking to trusted informational pages while their dedicated zone is not ready.
-6. Status vocabulary and colors are canonical:
-   - **Live Zone** — blue — patient-centered recovery guidance available now.
-   - **In Recovery** — teal — dedicated zone coming with an estimated month/year.
-   - **In Surgery** — gray — researching.
-7. The public site must not claim orthopedic approval or endorsement without documented authority; use patient-centered and clinically aligned language.
-8. The recovery trajectory should show a familiar clinical research form while clearly stating that it is a conceptual educational visualization, not patient-specific medical advice.
-9. The systems-comparison page may explain structural similarities to StegVerse systems research but must state that the projects are separate in purpose and are not necessarily publicly coupled.
-10. Shared medical disclaimer and navigation footer must appear on every public page.
-11. Generated raster/header files that failed or were inaccurate are not authoritative and must not be treated as production evidence.
-12. The body-map artwork and interactive hotspots should be separable so that anatomy can be improved without rewriting navigation behavior.
+1. The homepage remains intentionally minimal.
+2. Visitors select the expected joint location, not a detached menu surrogate.
+3. Hover/focus makes the selected joint opaque, enlarged, and illuminated.
+4. Hips and knees are blue **Live Zones** and route internally.
+5. Shoulders, elbows, and wrists are teal **In Recovery**; no date is published until confirmed.
+6. Spine/neck and ankles are gray **In Surgery — Researching**.
+7. Non-live joints route to trusted information while their dedicated Zone is unavailable.
+8. The legend is HTML outside the SVG for responsive/mobile presentation.
+9. The site does not claim orthopedic approval or endorsement without a documented reviewer/approval record.
+10. The recovery graph is a conceptual educational model, not a patient-specific forecast.
+11. JRRZ and StegVerse have separate public purposes; the systems comparison records a structural analogy only.
 
-## Completed work with evidence
+## Evidence and commits
 
-- Repository exists and is writable by the connected GitHub installation.
-- Historical commits show README, recovery framework, index, patient roadmap, and uploaded files were previously added. These historical commits are evidence of file creation only, not current completeness or runtime activation.
-- This canonical handoff is the first mutation of the present implementation lane.
+- Canonical handoff creation: `d1b16d1c236f557fa5da33a90a8c9280eec41bf4`
+- Responsive styles: `1637c02c0c764b533caf4843e96044bb34982682`
+- Interactive body map: `72f78ad299740ba4f246d0a0b14b1613177f1ee4`
+- Recovery trajectory: `b084801f60ecb1b7cda10ed5faffb0ec783776da`
+- Minimal homepage: `76dd23340f1c7fde828f6c0584c8b2fdb0ce2812`
+- Hip Zone: `b919ec1e0567ea012323bb4938fa88cf807b4a3c`
+- Knee Zone: `9bec0d446fd6b1aa07f2a5c3d209ee252a5364b4`
+- Patient roadmap: `dc1e253316b48596371dbf12cf0082b5414add5f`
+- Recovery model: `4141596b9002c63ca566ad527a1e69d9ad3b96af`
+- Systems comparison: `511ac47e7aa8a39f6a006656ee6ccb1fb4118002`
+- Pages workflow: `180e44774b721700cbd0908da7f1873635d37c43`
+- Validation receipt: `0793f2eabe3d07febae44ba6e735a7706b2474f4`
+- Supporting documentation commits are present on `main` after the public-site commits and are listed by file above.
 
-## Incomplete work
+## Validation classification
 
-- Inspect and classify all current repository files.
-- Replace or complete the public site implementation.
-- Install exact, correct body-map interactions and links.
-- Validate all HTML/CSS/SVG and internal links.
-- Inspect GitHub Pages/deployment state and public runtime.
-- Commit validation receipt and final handoff metrics.
-- Determine whether any cross-repository publication contract applies.
+- **Repository file installation:** COMPLETE for the 27-file public foundation inventory.
+- **Static source integration:** COMPLETE by committed-source inspection; detailed limitations are recorded in the validation receipt.
+- **Automated validation/deployment path:** INSTALLED.
+- **Hosted workflow result:** REVIEW_REQUIRED; combined-status lookup exposed no statuses and is not proof of pass/fail.
+- **Pages deployment:** REVIEW_REQUIRED.
+- **Public runtime:** REVIEW_REQUIRED.
+- **Clinical approval:** NOT CLAIMED.
+- **Braun review:** BLOCKED until public runtime is confirmed.
 
-## Blockers and authority boundaries
+## Goal inventory and state
 
-- Medical/orthopedic endorsement is not asserted. Any future claim of clinician approval requires a named approval record.
-- Estimated launch dates for future zones must be explicitly confirmed or clearly marked as estimates. Placeholder historical dates must not be published as current commitments.
-- GitHub Pages activation may require repository settings authority beyond file commits; classify separately from repository completion.
+| ID | Deliverable | State | Evidence / continuation |
+|---|---|---|---|
+| JRRZ-001 | Canonical handoff and claim control | COMPLETE | this file |
+| JRRZ-002 | Minimal homepage | COMPLETE | `site/index.html` |
+| JRRZ-003 | Correct interactive joint map | COMPLETE, runtime pending | `site/diagrams/zone-body-map.svg` |
+| JRRZ-004 | Live/In Recovery/In Surgery system | COMPLETE | CSS, SVG, homepage legend, `zones/Future_Zones.md` |
+| JRRZ-005 | Hip and Knee live pages | COMPLETE | `site/hip-zone.html`, `site/knee-zone.html` |
+| JRRZ-006 | Trusted fallback links | COMPLETE, periodic review required | body-map SVG |
+| JRRZ-007 | Recovery trajectory | COMPLETE, runtime pending | `site/diagrams/recovery-trajectory.svg` |
+| JRRZ-008 | Shared footer/disclaimer | COMPLETE | all seven public pages |
+| JRRZ-009 | Patient roadmap | COMPLETE | `site/patient-roadmap.html` |
+| JRRZ-010 | Recovery model page | COMPLETE | `site/recovery-model.html` |
+| JRRZ-011 | Systems comparison page | COMPLETE | `site/systems-comparison.html` |
+| JRRZ-012 | Web-safe brand/header system | COMPLETE | CSS-generated brand mark on each page; failed raster drafts superseded |
+| JRRZ-013 | Documentation tree | COMPLETE as foundational docs/placeholders | docs/guides/zones/research/meta |
+| JRRZ-014 | GitHub Pages deployment | MACHINE_OWNED / REVIEW_REQUIRED | workflow plus issue `#1` |
+| JRRZ-015 | Validation receipt | COMPLETE for static layer | validation receipt |
+| JRRZ-016 | Cross-repository propagation | REVIEW_REQUIRED, not proven necessary | inspect only after a live contract identifies a consumer |
 
-## Machine-owned continuation tasks
+## Remaining exact tasks
 
-- None confirmed at handoff creation. If a validation or Pages workflow exists, it must be inspected before adding a competing workflow.
+1. **Issue #1:** inspect the Pages workflow run, jobs, logs, and deployment URL; correct failures; update this handoff and validation receipt.
+2. If GitHub Pages settings block the workflow, issue #1 must record the exact settings/permission boundary and remain BLOCKED until that condition changes.
+3. After runtime confirmation, prepare the public Braun review note without implying endorsement.
+4. Clinical sources and reviewer approval records remain future content tasks, not blockers to the clearly labeled educational test site's repository completion.
+5. Cross-repository propagation remains `REVIEW_REQUIRED`; no live JRRZ contract currently proves that Site, Publisher, either wiki, or master-records owns this public test surface.
 
-## Cross-repository dependencies
+## Consolidation and merge record
 
-- None proven at handoff creation.
-- Before propagation to `StegVerse-Labs/Site`, `GCAT-BCAT-Engine/Publisher`, `admissibility-wiki`, `stegguardian-wiki`, or `master-records`, inspect the live JRRZ/Site/Publisher handoffs and contracts. Do not duplicate canonical publication authority.
-
-## Validation commands / checks
-
-- Parse all HTML files and verify required elements and links.
-- Parse all SVG files as XML.
-- Verify local relative assets exist.
-- Verify every public page includes shared footer/disclaimer.
-- Verify every body-map joint has matching label, status, target, accessible name, and correct visual coordinate.
-- Verify no unsupported endorsement or outcome claims.
-- Inspect commit status and GitHub Pages/runtime separately.
-
-## Integration and propagation obligations
-
-- Primary integration: `site/index.html` loads both diagrams and shared CSS correctly.
-- Zone links: hip and knee internal; other joints trusted external resources until dedicated zones exist.
-- Propagation is REVIEW_REQUIRED until a live contract identifies another repository as publication owner.
-
-## Session consolidation
-
-- **Canonical continuation:** `StegVerse-Labs/JRRZ/JRRZ_MIRROR_HANDOFF.md`
-- The originating conversation's unique requirements have been transferred into this file.
-- Session cannot be archived until implementation, validation, and runtime/deployment state are recorded here or a named durable task owns the remainder.
+- **MERGED INTO:** `StegVerse-Labs/JRRZ/JRRZ_MIRROR_HANDOFF.md` and issue `#1`.
+- Transferred: every unique requirement from the originating session, including the minimal navigation concept, anatomical QA corrections, status vocabulary/colors, hover behavior, fallback information links, recovery trajectory, systems comparison, public-safety language, documentation tree, and Braun-review intent.
+- Completed: repository implementation, static evidence receipt, deployment workflow installation, and durable continuation task.
+- Remaining owner: repository-native workflow and issue `#1` validation lane.
+- No remaining implementation detail requires the original conversation for continuation.
 
 ## Archive conditions
 
-1. All session-specific requirements are installed or explicitly superseded.
-2. Static validation receipt is committed.
-3. Deployment/runtime state is inspected and accurately classified.
-4. No stale or conflicting claims remain.
-5. Remaining tasks, if any, have durable owners and release conditions.
-6. This handoff contains enough state for continuation without the conversation.
+The originating conversation may be archived once this handoff and issue are accepted as the canonical continuation path. Deployment activation itself can continue through issue `#1` without retaining the conversation because the task, evidence requirements, failure behavior, and release conditions are durable.
 
-## Initial metrics
+## Current metrics
 
-- **Developed-files percentage:** 0% verified in this lane; current repository inspection pending.
-- **Validation percentage:** 0%.
-- **Integration percentage:** 0% verified.
-- **Goal-activation percentage:** 0% verified.
-
-These percentages must be updated from direct file inspection and evidence, not prior chat claims.
+- **Task completion:** 14/16 = 87.5%; two tasks are review/activation tasks.
+- **Developed files:** 27/27 required public-foundation files = 100% installed; foundational research documents intentionally identify future verified content.
+- **Validation:** 9/12 validation layers complete or installed; hosted workflow, deployment, and public runtime remain unobserved.
+- **Integration:** 6/8 integration checks complete; Pages activation and runtime remain.
+- **Goal activation:** 75%; repository foundation is active, public runtime is unverified.
+- **Session consolidation:** 16/16 session goals durably transferred or completed.
