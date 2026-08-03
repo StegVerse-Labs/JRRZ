@@ -1,18 +1,191 @@
+:root {
+  --navy: #163b5c;
+  --blue: #1f78b4;
+  --teal: #2aa198;
+  --gray: #9aa9b8;
+  --ink: #263746;
+  --muted: #5f7384;
+  --line: #d7e2ec;
+  --surface: #f7fafc;
+  --white: #ffffff;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
 
 body {
-font-family: Arial, Helvetica, sans-serif;
-margin: 40px;
-max-width: 900px;
-line-height: 1.6;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--ink);
+  background: var(--white);
+  line-height: 1.6;
 }
 
-h1 { color:#2c3e50; }
+a { color: #176aa1; }
+a:hover, a:focus { text-decoration-thickness: 2px; }
 
-h2 { margin-top:30px; color:#34495e; }
-
-a {
-color:#2a6fdb;
-text-decoration:none;
+.site-shell {
+  width: min(100% - 2rem, 980px);
+  margin-inline: auto;
 }
 
-a:hover { text-decoration:underline; }
+.site-header {
+  padding: 1.5rem 0 1rem;
+  text-align: center;
+  border-bottom: 1px solid var(--line);
+}
+
+.brand-mark {
+  display: inline-flex;
+  align-items: center;
+  gap: .8rem;
+  color: var(--navy);
+  text-decoration: none;
+}
+
+.brand-icon {
+  width: 52px;
+  height: 52px;
+  border: 3px solid var(--blue);
+  border-radius: 50%;
+  position: relative;
+}
+
+.brand-icon::before,
+.brand-icon::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  background: var(--teal);
+}
+
+.brand-icon::before { width: 12px; height: 12px; left: 9px; top: 18px; }
+.brand-icon::after { width: 12px; height: 12px; right: 9px; bottom: 10px; }
+
+.brand-name {
+  font-size: clamp(1.25rem, 3vw, 2rem);
+  font-weight: 700;
+  letter-spacing: .01em;
+}
+
+.tagline {
+  margin: .5rem auto 0;
+  max-width: 720px;
+  color: var(--muted);
+}
+
+.main-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: .75rem 1.25rem;
+  padding: .9rem 0;
+}
+
+.main-nav a {
+  font-weight: 600;
+  text-decoration: none;
+}
+
+main { padding: 1.25rem 0 3rem; }
+
+.hero-copy {
+  text-align: center;
+  margin: 0 auto 1rem;
+  max-width: 760px;
+}
+
+.hero-copy h1,
+.page-intro h1 {
+  color: var(--navy);
+  margin-bottom: .4rem;
+  line-height: 1.2;
+}
+
+.visual-panel {
+  margin: 1.5rem auto 2.5rem;
+  padding: clamp(.5rem, 2vw, 1.25rem);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--surface);
+  box-shadow: 0 8px 24px rgba(22, 59, 92, .06);
+}
+
+.body-map-object,
+.recovery-graphic {
+  display: block;
+  width: 100%;
+  max-width: 900px;
+  margin-inline: auto;
+  border: 0;
+}
+
+.body-map-object { aspect-ratio: 4 / 5; min-height: 660px; }
+.recovery-graphic { height: auto; }
+
+.zone-legend {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.legend-item {
+  padding: .9rem;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+
+.legend-title { display: flex; align-items: center; gap: .5rem; font-weight: 700; }
+.legend-dot { width: 14px; height: 14px; border-radius: 50%; flex: 0 0 auto; }
+.legend-dot.live { background: var(--blue); }
+.legend-dot.recovery { background: var(--teal); }
+.legend-dot.surgery { background: var(--gray); }
+.legend-item p { margin: .35rem 0 0; color: var(--muted); font-size: .93rem; }
+
+.content-card {
+  margin: 1.25rem 0;
+  padding: 1.2rem;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--white);
+}
+
+.content-card h2 { color: var(--navy); margin-top: 0; }
+.notice {
+  padding: 1rem;
+  border-left: 5px solid var(--teal);
+  background: #eef9f8;
+  border-radius: 8px;
+}
+
+.phase-list { padding-left: 1.25rem; }
+.phase-list li { margin-bottom: .5rem; }
+
+.site-footer {
+  border-top: 1px solid var(--line);
+  background: var(--surface);
+  padding: 2rem 0;
+  color: var(--muted);
+  font-size: .94rem;
+}
+
+.footer-brand { color: var(--navy); font-weight: 700; margin: 0 0 .35rem; }
+.footer-nav { display: flex; flex-wrap: wrap; gap: .7rem 1rem; margin: .85rem 0; }
+.footer-nav a { text-decoration: none; font-weight: 600; }
+.footer-copy { margin-bottom: 0; }
+
+@media (max-width: 760px) {
+  .zone-legend { grid-template-columns: 1fr; }
+  .body-map-object { min-height: 760px; }
+  .brand-name { max-width: 260px; text-align: left; }
+}
+
+@media (max-width: 480px) {
+  .site-shell { width: min(100% - 1rem, 980px); }
+  .brand-icon { width: 44px; height: 44px; }
+  .body-map-object { min-height: 680px; }
+  .visual-panel { border-radius: 12px; }
+}
