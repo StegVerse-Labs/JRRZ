@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1125" viewBox="0 0 900 1125" role="img" aria-labelledby="title desc">
+  <title id="title">Explore Recovery Zones</title>
+  <desc id="desc">Front-facing clinical body map. Blue hip and knee joints link to live recovery zones. Teal shoulder, elbow, and wrist joints are in recovery. Gray spine, neck, and ankle zones are in surgery and link to trusted information.</desc>
+  <style>
+    :root{--navy:#163b5c;--blue:#1f78b4;--teal:#2aa198;--gray:#9aa9b8;--body:#e7eef4;--outline:#bdccd8;--ink:#294960;--muted:#5f7384}
+    text{font-family:Arial,Helvetica,sans-serif}.heading{font-size:34px;font-weight:700;fill:var(--navy)}.sub{font-size:18px;fill:var(--muted)}
+    .body-fill{fill:var(--body);stroke:var(--outline);stroke-width:3}.limb{fill:none;stroke:var(--outline);stroke-width:54;stroke-linecap:round}.label{font-size:20px;font-weight:700;fill:var(--ink)}.status{font-size:15px;font-weight:700}.note{font-size:14px;fill:var(--muted)}
+    .connector{fill:none;stroke-width:3}.live .connector{stroke:var(--blue)}.recovery .connector{stroke:var(--teal)}.surgery .connector{stroke:var(--gray)}
+    .hotspot{fill:#fff;stroke-width:4;transition:fill .16s ease,filter .16s ease,transform .16s ease;transform-box:fill-box;transform-origin:center}.live .hotspot{stroke:var(--blue)}.recovery .hotspot{stroke:var(--teal)}.surgery .hotspot{stroke:var(--gray)}
+    a:focus .hotspot,a:hover .hotspot{transform:scale(1.18);filter:drop-shadow(0 0 8px currentColor)}.live a:focus .hotspot,.live a:hover .hotspot{fill:var(--blue);color:var(--blue)}.recovery a:focus .hotspot,.recovery a:hover .hotspot{fill:var(--teal);color:var(--teal)}.surgery a:focus .hotspot,.surgery a:hover .hotspot{fill:var(--gray);color:var(--gray)}
+    .live .status{fill:var(--blue)}.recovery .status{fill:var(--teal)}.surgery .status{fill:#7e8b98}
+    .click-area{fill:transparent;stroke:none;pointer-events:all}
+  </style>
+  <rect width="900" height="1125" fill="#fff"/>
+  <text class="heading" x="450" y="50" text-anchor="middle">Explore Recovery Zones</text>
+  <text class="sub" x="450" y="80" text-anchor="middle">Select the joint itself to open its recovery destination.</text>
+
+  <!-- Flat clinical silhouette: single torso, straight extended arms, straight separated legs -->
+  <circle class="body-fill" cx="450" cy="162" r="54"/>
+  <rect class="body-fill" x="429" y="210" width="42" height="42" rx="15"/>
+  <path class="body-fill" d="M370 248 Q450 218 530 248 L557 555 Q548 650 492 720 L480 757 L420 757 L408 720 Q352 650 343 555 Z"/>
+  <path class="limb" d="M365 282 L235 560"/>
+  <path class="limb" d="M535 282 L665 560"/>
+  <path class="limb" d="M420 742 L372 1015"/>
+  <path class="limb" d="M480 742 L528 1015"/>
+  <ellipse class="body-fill" cx="350" cy="1040" rx="58" ry="20"/>
+  <ellipse class="body-fill" cx="550" cy="1040" rx="58" ry="20"/>
+
+  <!-- Spine / neck -->
+  <g class="surgery">
+    <a href="https://www.orthoinfo.org/en/recovery/?topic=RecoveryFromSurgery" target="_blank" rel="noopener noreferrer" aria-label="Spine and Neck Zone, In Surgery, researching; opens trusted recovery information">
+      <title>Spine/Neck — In Surgery — Researching</title>
+      <path class="connector" d="M660 222 H560 L480 228"/>
+      <ellipse class="hotspot" cx="450" cy="230" rx="24" ry="14"/>
+      <rect class="click-area" x="415" y="205" width="70" height="50"/>
+    </a>
+    <text class="label" x="675" y="214">Spine/Neck</text><text class="status" x="675" y="237">In Surgery</text><text class="note" x="675" y="258">Researching</text>
+  </g>
+
+  <!-- Shoulders -->
+  <g class="recovery">
+    <a href="https://en.wikipedia.org/wiki/Shoulder_replacement" target="_blank" rel="noopener noreferrer" aria-label="Shoulder Zone, In Recovery, dedicated zone coming soon; opens shoulder replacement information">
+      <title>Shoulders — In Recovery — dedicated Zone coming soon</title>
+      <path class="connector" d="M220 275 H300 L350 275"/>
+      <circle class="hotspot" cx="360" cy="278" r="18"/><circle class="hotspot" cx="540" cy="278" r="18"/>
+      <rect class="click-area" x="325" y="245" width="250" height="66"/>
+    </a>
+    <text class="label" x="35" y="266">Shoulders</text><text class="status" x="35" y="289">In Recovery</text><text class="note" x="35" y="310">Coming — estimate pending</text>
+  </g>
+
+  <!-- Elbows -->
+  <g class="recovery">
+    <a href="https://www.orthoinfo.org/en/recovery/?topic=RecoveryFromSurgery" target="_blank" rel="noopener noreferrer" aria-label="Elbow Zone, In Recovery, dedicated zone coming soon; opens trusted recovery information">
+      <title>Elbows — In Recovery — dedicated Zone coming soon</title>
+      <path class="connector" d="M210 430 H255 L292 438"/>
+      <circle class="hotspot" cx="292" cy="438" r="16"/><circle class="hotspot" cx="608" cy="438" r="16"/>
+      <rect class="click-area" x="265" y="410" width="370" height="56"/>
+    </a>
+    <text class="label" x="35" y="421">Elbows</text><text class="status" x="35" y="444">In Recovery</text><text class="note" x="35" y="465">Coming — estimate pending</text>
+  </g>
+
+  <!-- Wrists -->
+  <g class="recovery">
+    <a href="https://www.orthoinfo.org/en/recovery/?topic=RecoveryFromSurgery" target="_blank" rel="noopener noreferrer" aria-label="Wrist Zone, In Recovery, dedicated zone coming soon; opens trusted recovery information">
+      <title>Wrists — In Recovery — dedicated Zone coming soon</title>
+      <path class="connector" d="M215 570 H230"/>
+      <circle class="hotspot" cx="235" cy="560" r="14"/><circle class="hotspot" cx="665" cy="560" r="14"/>
+      <rect class="click-area" x="210" y="535" width="480" height="52"/>
+    </a>
+    <text class="label" x="35" y="558">Wrists</text><text class="status" x="35" y="581">In Recovery</text><text class="note" x="35" y="602">Coming — estimate pending</text>
+  </g>
+
+  <!-- Hips -->
+  <g class="live">
+    <a href="../hip-zone.html" aria-label="The Hip Zone, Live Zone, patient-centered recovery guidance">
+      <title>The Hip Zone — Live Zone</title>
+      <path class="connector" d="M245 714 H340 L405 700"/>
+      <circle class="hotspot" cx="410" cy="700" r="20"/><circle class="hotspot" cx="490" cy="700" r="20"/>
+      <rect class="click-area" x="375" y="666" width="150" height="68"/>
+    </a>
+    <text class="label" x="35" y="702">The Hip Zone</text><text class="status" x="35" y="725">Live Zone</text><text class="note" x="35" y="746">Patient-centered guidance</text>
+  </g>
+
+  <!-- Knees -->
+  <g class="live">
+    <a href="../knee-zone.html" aria-label="The Knee Zone, Live Zone, patient-centered recovery guidance">
+      <title>The Knee Zone — Live Zone</title>
+      <path class="connector" d="M655 855 H570 L525 855"/>
+      <circle class="hotspot" cx="400" cy="855" r="20"/><circle class="hotspot" cx="500" cy="855" r="20"/>
+      <rect class="click-area" x="365" y="820" width="170" height="70"/>
+    </a>
+    <text class="label" x="670" y="843">The Knee Zone</text><text class="status" x="670" y="866">Live Zone</text><text class="note" x="670" y="887">Patient-centered guidance</text>
+  </g>
+
+  <!-- Ankles -->
+  <g class="surgery">
+    <a href="https://www.orthoinfo.org/en/recovery/?topic=RecoveryFromSurgery" target="_blank" rel="noopener noreferrer" aria-label="Ankle Zone, In Surgery, researching; opens trusted recovery information">
+      <title>Ankles — In Surgery — Researching</title>
+      <path class="connector" d="M220 1008 H330 L365 1009"/>
+      <circle class="hotspot" cx="365" cy="1009" r="15"/><circle class="hotspot" cx="535" cy="1009" r="15"/>
+      <rect class="click-area" x="338" y="982" width="224" height="54"/>
+    </a>
+    <text class="label" x="35" y="997">Ankles</text><text class="status" x="35" y="1020">In Surgery</text><text class="note" x="35" y="1041">Researching</text>
+  </g>
+</svg>
